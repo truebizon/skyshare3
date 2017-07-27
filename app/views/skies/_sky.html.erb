@@ -1,0 +1,24 @@
+ <div class="content_post" style="background-image: url(<%= sky.image %>);">
+      <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+          <ul class="more_list">
+           <li>
+              <%= link_to '詳細', "/skies/#{sky.id}", method: :get %>
+            </li>
+            <% if user_signed_in? && current_user.id == sky.user_id %>
+           <li>
+            <%= link_to '編集', "/skies/#{sky.id}/edit", method: :get %>
+           </li>
+           <li>
+            <%= link_to '削除', "/skies/#{sky.id}", method: :delete %>
+           </li>
+            <% end %>
+           </ul>
+      </div>
+        <%= simple_format(sky.text) %>
+        <span class="name">
+          <a href="">
+            <span>投稿者</span><%= sky.user.nickname %>
+          </a>
+        </span>
+      </div>

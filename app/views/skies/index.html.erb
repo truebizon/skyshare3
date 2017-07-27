@@ -1,0 +1,6 @@
+<div class="contents row" >
+  <% @skies.each do |sky| %>
+    <%= render partial: "sky", locals: { sky: sky } %>
+  <% end %>
+  <%= paginate(@skies) %>
+</div>
